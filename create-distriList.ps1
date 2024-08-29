@@ -2,7 +2,7 @@
 Name: John Asare
 Date: 08/29/2024
 
-Des: Read more about this code from 
+Des: Read more about this code from https://github.com/asarejohn001/add-members-to-distroList
 #>
 
 # Install module if not already
@@ -31,7 +31,7 @@ $logFilePath = ".\log.txt"
 # Connect to EXO
 try {
     # Attempt to connect to Exchange Online
-    Connect-ExchangeOnline -UserPrincipalName 'asarej@dhec.sc.gov' -ErrorAction Stop
+    Connect-ExchangeOnline -UserPrincipalName 'enter your email to connect' -ErrorAction Stop
     Get-Log -LogFilePath $logFilePath -LogMessage "Successfully connected to Exchange Online."
     
 } catch {
@@ -50,6 +50,9 @@ $members = Import-Csv -Path $csvPath
 # Specify the alias or email address of the distribution group
 $distributionGroup = "YourDistributionGroup@domain.com"
 
+# Signal script in progress
+Write-Host 'Script is now in-progress...'
+
 # Loop through each member and try to add them to the distribution group
 foreach ($member in $members) {
     $emailAddress = $member.EmailAddress
@@ -64,6 +67,9 @@ foreach ($member in $members) {
         Get-Log -LogFilePath $logFilePath -LogMessage "Failed to add $emailAddress to $distributionGroup. Error: $_"
     }
 }
+
+# Signal completion of script
+Write-Host 'script is done, check log file.'
 
 # Disconnect from Exchange Online
 Disconnect-ExchangeOnline -Confirm:$false
