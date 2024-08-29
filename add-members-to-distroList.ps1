@@ -6,7 +6,7 @@ Des: Read more about this code from https://github.com/asarejohn001/add-members-
 #>
 
 # Install module if not already
-Install-Module -Name ExchangeOnlineManagement -Force -AllowClobber
+#Install-Module -Name ExchangeOnlineManagement -Force -AllowClobber
 
 # Import the exchangeonline module
 Import-Module ExchangeOnlineManagement
@@ -31,7 +31,7 @@ $logFilePath = ".\log.txt"
 # Connect to EXO
 try {
     # Attempt to connect to Exchange Online
-    Connect-ExchangeOnline -UserPrincipalName 'enter your email to connect' -ErrorAction Stop
+    Connect-ExchangeOnline -UserPrincipalName 'example@domain.com' -ErrorAction Stop
     Get-Log -LogFilePath $logFilePath -LogMessage "Successfully connected to Exchange Online."
     
 } catch {
@@ -42,13 +42,13 @@ try {
 }
 
 # Define the path to your CSV file
-$csvPath = "C:\Path\To\Your\CSV\members.csv"
+$csvPath = ".\relativepath.csv"
 
 # Import the CSV file
 $members = Import-Csv -Path $csvPath
 
 # Specify the alias or email address of the distribution group
-$distributionGroup = "YourDistributionGroup@domain.com"
+$distributionGroup = "paste the email of the group here"
 
 # Signal script in progress
 Write-Host 'Script is now in-progress...'
