@@ -7,3 +7,5 @@ The [add-members-to-distroList script](add-members-to-distroList.ps1) will help 
 
 ### Script breakdown
 1. It will import the [ExchangeOnlineManagement module](https://learn.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2?view=exchange-ps)
+2. Use the [Connect-ExchangeOnline](https://learn.microsoft.com/en-us/powershell/module/exchange/connect-exchangeonline?view=exchange-ps) method to connect to your EAC
+3. It will loop through a CSV file that contains the email addresses of the members and then use the [Add-DistributionGroupMember ](https://learn.microsoft.com/en-us/powershell/module/exchange/add-distributiongroupmember?view=exchange-ps) cmdlet to add the members to the group.
