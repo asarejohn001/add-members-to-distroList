@@ -6,4 +6,4 @@ Distribution groups are best for situations where you need to broadcast informat
 The [add-members-to-distroList script](add-members-to-distroList.ps1) will help engineers and administrators add multiple users to a distribution group. 
 
 ### Script breakdown
-1. 
+1. It will import the [ExchangeOnlineManagement module](https://learn.microsoft.com/en-us/powershell/exchange/exchange-online-powershell-v2?view=exchange-ps)
